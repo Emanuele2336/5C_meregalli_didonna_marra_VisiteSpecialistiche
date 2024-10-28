@@ -1,0 +1,22 @@
+{
+  "name": "5c_meregalli_didonna_marra_visitespecialistiche",
+  "version": "1.0.0",
+  "description": "progetto visite",
+  "main": "index.js",
+  "scripts": {
+    "test": "pippo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emanuele2336/5C_meregalli_didonna_marra_VisiteSpecialistiche.git"
+  },
+  "keywords": [
+    "pippo"
+  ],
+  "author": "di donna meregalli marra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emanuele2336/5C_meregalli_didonna_marra_VisiteSpecialistiche/issues"
+  },
+  "homepage": "https://github.com/Emanuele2336/5C_meregalli_didonna_marra_VisiteSpecialistiche#readme"
+}
