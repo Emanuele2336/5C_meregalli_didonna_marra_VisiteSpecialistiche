@@ -1,4 +1,4 @@
-export const createForm = (parentElement) => {
+/*export*/ const createForm = (parentElement) => {
     let data;
     let callback = null;
   

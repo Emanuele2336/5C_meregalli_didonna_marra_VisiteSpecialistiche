@@ -1,4 +1,4 @@
-export const createTable = (parentElement) => {
+/*export*/ const createTable = (parentElement) => {
     let data;
     return {
       build: (dataInput) => {
