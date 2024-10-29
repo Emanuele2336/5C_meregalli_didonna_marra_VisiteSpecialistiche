@@ -7,6 +7,7 @@ const table = createTable(document.querySelector("#table1"));
 table.render();
 */
 const buttons=[];
+const tabels=[];
 let tipologieArray = [];
 
   fetch("conf.json")
@@ -15,6 +16,10 @@ let tipologieArray = [];
     tipologieArray = tipologieArray.concat(data.tipologie);
     for(let i =0;i<tipologieArray.length;i++){
       let b = createButton(document.querySelector("#bottoni"));
+      let t = createTable();
+      t.build("lunedi","ciao","ciao","ciao");
+      t.render();
+
       b.setLabel(tipologieArray[i]);
       buttons.push(b);
       b.render();
