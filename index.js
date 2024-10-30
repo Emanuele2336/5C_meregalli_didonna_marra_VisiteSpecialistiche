@@ -19,6 +19,14 @@ let tipologieArray = [];
     let table = createTable(document.querySelector("#tabelle"))
     table.build([[]],"ciao")
     table.render();
+
+    let bottonePrenota=createButton(document.querySelector("#bottoni"));
+    bottonePrenota.setLabel("Prenota");
+    bottonePrenota.render();
+    bottonePrenota.onclick=(()=>{
+      let x=0;
+      console.log(x);
+    });
   
 })
 
