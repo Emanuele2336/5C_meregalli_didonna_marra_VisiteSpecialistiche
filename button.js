@@ -1,5 +1,5 @@
 
- const createButton = (parentElement) => {
+ export const createButton = (parentElement) => {
     let data;
     let callback = null;
   
