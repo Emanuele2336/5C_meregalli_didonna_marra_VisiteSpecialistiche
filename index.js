@@ -17,16 +17,18 @@ let tipologieArray = [];
       b.render();
     }
     let table = createTable(document.querySelector("#tabelle"))
-    table.build([[]],"ciao")
+    table.build([[8,"",""],[9,"",""],[10,"",""],[11,"",""],[12,"",""]])
     table.render();
 
     let bottonePrenota=createButton(document.querySelector("#bottoni"));
     bottonePrenota.setLabel("Prenota");
     bottonePrenota.render();
-    bottonePrenota.onclick=(()=>{
-      let x=0;
-      console.log(x);
-    });
+    let a=document.querySelector("#buttonPrenota");
+    a.onclick=()=>{ //bottone funzionante prenota
+      //console.log("ciao");
+    }
+    //da fare richiamo altri bottoni e sviluppo delle funzionalità
+
   
 })
 

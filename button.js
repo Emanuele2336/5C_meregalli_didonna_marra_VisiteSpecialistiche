@@ -8,9 +8,6 @@
       onclick: (callbackInput) => {callback = callbackInput},
       render: () => { 
         parentElement.innerHTML += `<button type='button' id='button${data}'>${data}</button>`
-        document.querySelector(`#button${data}`).onclick=()=>{
-          callback(c);
-        }
       },
     };
   };
