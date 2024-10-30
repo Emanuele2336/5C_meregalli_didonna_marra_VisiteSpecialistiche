@@ -17,7 +17,7 @@ let tipologieArray = [];
       b.render();
     }
     let table = createTable(document.querySelector("#tabelle"))
-    table.build([[]],"ciao")
+    table.build([[8,"",""],[9,"",""],[10,"",""],[11,"",""],[12,"",""]])
     table.render();
   
 })
