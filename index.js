@@ -12,14 +12,13 @@ let tipologieArray = [];
     tipologieArray = tipologieArray.concat(data.tipologie);
     for(let i =0;i<tipologieArray.length;i++){
       let b = createButton(document.querySelector("#bottoni"));
-      let t = createTable();
-      t.build("lunedi","ciao","ciao","ciao");
-      t.render();
-
       b.setLabel(tipologieArray[i]);
       buttons.push(b);
       b.render();
     }
+    let table = createTable(document.querySelector("#tabelle"))
+    table.build([[]],"ciao")
+    table.render();
   
 })
 
