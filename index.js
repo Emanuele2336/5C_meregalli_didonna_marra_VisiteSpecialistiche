@@ -6,6 +6,7 @@ import {createButton} from "./button.js";
 const buttons=[];
 const tabels=[];
 let tipologieArray = [];
+let tables=[];
 
   fetch("conf.json")
   .then(response => response.json())  
@@ -18,10 +19,42 @@ let tipologieArray = [];
       b.render();
     }
     
+    for (let i =0;i<5;i++){
+        let table = createTable(document.querySelector("#tabelle"))
+        table.build([[8,"",""],[9,"",""],[10,"",""],[11,"",""],[12,"",""]])
+        tables.push(table);
+    }
     
-    let table = createTable(document.querySelector("#tabelle"))
-    table.build([[8,"",""],[9,"",""],[10,"",""],[11,"",""],[12,"",""]])
-    table.render();
+    document.querySelector("#buttonCardiologia").onclick=()=>{
+        tables[0].render();
+        console.log("ciao0");
+
+    }
+
+    document.querySelector("#buttonPsicologia").onclick=()=>{
+        tables[1].render();
+        console.log("ciao1");
+
+    }
+
+    document.querySelector("#buttonOncologia").onclick=()=>{
+        tables[2].render();
+        console.log("ciao2");
+    }
+
+    document.querySelector("#buttonOrtopedia").onclick=()=>{
+        tables[3].render();
+        console.log("ciao3");
+
+    }
+
+    document.querySelector("#buttonNeurologia").onclick=()=>{
+        tables[4].render();
+        console.log("ciao4");
+    }
+
+    
+    
 
       let template=`
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
