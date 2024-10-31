@@ -16,6 +16,10 @@ let tipologieArray = [];
       buttons.push(b);
       b.render();
     }
+    let prenotaButton = createButton(document.querySelector("#bottoni"));
+    prenotaButton.setLabel("prenota")
+    prenotaButton.render();
+    
     let table = createTable(document.querySelector("#tabelle"))
     table.build([[8,"",""],[9,"",""],[10,"",""],[11,"",""],[12,"",""]])
     table.render();
