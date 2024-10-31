@@ -76,7 +76,18 @@ let tables=[];
                   <option value="ciao">10</option>
                   <option value="ciao">11</option>
                   <option value="ciao">12</option>
-                </select><br>
+                </select>
+                <select>
+                <option value="ciao">lunedì ${new Date().toLocaleDateString()}</option>
+                  <option value="ciao">martedì ${new Date(new Date().setDate(new Date().getDate() + 1)).toLocaleDateString()}</option>
+                  <option value="ciao">mercoledì ${new Date(new Date().setDate(new Date().getDate() + 2)).toLocaleDateString()}</option>
+                  <option value="ciao">giovedì ${new Date(new Date().setDate(new Date().getDate() + 3)).toLocaleDateString()}</option>
+                  <option value="ciao">venerdì ${new Date(new Date().setDate(new Date().getDate() + 4)).toLocaleDateString()}</option>
+                </select>
+               
+             
+                
+                <br>
                 <input type="text" placeholder="Inserire Nominativo">
               </div>
               <div class="modal-footer">
