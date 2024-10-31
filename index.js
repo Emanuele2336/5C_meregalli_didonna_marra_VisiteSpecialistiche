@@ -7,6 +7,24 @@ const buttons=[];
 const tabels=[];
 let tipologieArray = [];
 let tables=[];
+let templateTable = [[8,"","","","",""],[9,"","","","",""],[10,"","","","",""],[11,"","","","",""],[12,"","","","",""]];
+let currentTable=0;
+
+Object.defineProperty(HTMLElement.prototype, 'show', {
+    value: function() {
+        this.classList.remove('hidden-visibility');
+        this.classList.add('visible-visibility');
+    },
+    enumerable: false
+});
+
+Object.defineProperty(HTMLElement.prototype, 'hide', {
+    value: function() {
+        this.classList.remove('visible-visibility');
+        this.classList.add('hidden-visibility');
+    },
+    enumerable: false 
+});
 
   fetch("conf.json")
   .then(response => response.json())  
@@ -20,44 +38,89 @@ let tables=[];
     }
     
     for (let i =0;i<5;i++){
-        let table = createTable(document.querySelector("#tabelle"))
-        table.build([[8,"",""],[9,"",""],[10,"",""],[11,"",""],[12,"",""]])
+        let table = createTable(document.querySelector("#tabelle"),i)
+        table.build(templateTable)
         tables.push(table);
     }
     
-    document.querySelector("#buttonCardiologia").onclick=()=>{
+   /* const tables = []; // Array per contenere le tabelle
+
+    for (let i = 0; i < 5; i++) {
+        let table = createTable(document.querySelector("#tabelle"));
+    
+        // Genera un ID unico per ogni tabella, ad esempio "table-0", "table-1", ecc.
+        const tableId = `table-${i}`;
+        
+        // Passa l'ID unico alla funzione build della tabella
+        table.build(templateTable, tableId);
+    
+        // Aggiungi la tabella all'array
+        tables.push(table);
+    }
+    */
+
+
+
+    document.getElementById("buttonCardiologia").onclick = () => {
         tables[0].render();
         console.log("ciao0");
-
+        currentTable = 0;
+        document.getElementById("0").show()
+        document.getElementById("1").hide()
+        document.getElementById("2").hide()
+        document.getElementById("3").hide()
+        document.getElementById("4").hide()
     }
-
-    document.querySelector("#buttonPsicologia").onclick=()=>{
+    document.getElementById("buttonPsicologia").onclick = () => {
         tables[1].render();
         console.log("ciao1");
-
+        currentTable = 1;
+        document.getElementById("1").show()
+        document.getElementById("0").hide()
+        document.getElementById("2").hide()
+        document.getElementById("3").hide()
+        document.getElementById("4").hide()
     }
-
-    document.querySelector("#buttonOncologia").onclick=()=>{
+    
+    document.getElementById("buttonOncologia").onclick = () => {
         tables[2].render();
         console.log("ciao2");
+        currentTable = 2;
+        document.getElementById("2").show()
+        document.getElementById("1").hide()
+        document.getElementById("0").hide()
+        document.getElementById("3").hide()
+        document.getElementById("4").hide()
     }
-
-    document.querySelector("#buttonOrtopedia").onclick=()=>{
+    
+    document.getElementById("buttonOrtopedia").onclick = () => {
         tables[3].render();
         console.log("ciao3");
-
+        currentTable = 3;
+        document.getElementById("3").show()
+        document.getElementById("1").hide()
+        document.getElementById("2").hide()
+        document.getElementById("0").hide()
+        document.getElementById("4").hide()
     }
-
-    document.querySelector("#buttonNeurologia").onclick=()=>{
+    
+    document.getElementById("buttonNeurologia").onclick = () => {
         tables[4].render();
         console.log("ciao4");
+        currentTable = 4;
+        document.getElementById("4").show()
+        document.getElementById("1").hide()
+        document.getElementById("2").hide()
+        document.getElementById("3").hide()
+        document.getElementById("0").hide()
     }
+    
 
     
     
 
       let template=`
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="prenota">
           Prenota
         </button>
 
@@ -70,29 +133,29 @@ let tables=[];
               </div>
               <div class="modal-body">
 
-                <select>
-                  <option value="ciao">8</option>
-                  <option value="ciao">9</option>
-                  <option value="ciao">10</option>
-                  <option value="ciao">11</option>
-                  <option value="ciao">12</option>
+                <select id="sceltaOra">
+                  <option value="0" id="option0">8</option>
+                  <option value="1" id="option1">9</option>
+                  <option value="2" id="option2">10</option>
+                  <option value="3" id="option3">11</option>
+                  <option value="4" id="option4">12</option>
                 </select>
-                <select>
-                <option value="ciao">lunedì ${new Date().toLocaleDateString()}</option>
-                  <option value="ciao">martedì ${new Date(new Date().setDate(new Date().getDate() + 1)).toLocaleDateString()}</option>
-                  <option value="ciao">mercoledì ${new Date(new Date().setDate(new Date().getDate() + 2)).toLocaleDateString()}</option>
-                  <option value="ciao">giovedì ${new Date(new Date().setDate(new Date().getDate() + 3)).toLocaleDateString()}</option>
-                  <option value="ciao">venerdì ${new Date(new Date().setDate(new Date().getDate() + 4)).toLocaleDateString()}</option>
+                <select id="sceltaGiorno">
+                <option value="0">lunedì ${new Date().toLocaleDateString()}</option>
+                  <option value="1">martedì ${new Date(new Date().setDate(new Date().getDate() + 1)).toLocaleDateString()}</option>
+                  <option value="2">mercoledì ${new Date(new Date().setDate(new Date().getDate() + 2)).toLocaleDateString()}</option>
+                  <option value="3">giovedì ${new Date(new Date().setDate(new Date().getDate() + 3)).toLocaleDateString()}</option>
+                  <option value="4">venerdì ${new Date(new Date().setDate(new Date().getDate() + 4)).toLocaleDateString()}</option>
                 </select>
                
              
                 
                 <br>
-                <input type="text" placeholder="Inserire Nominativo">
+                <input type="text" placeholder="Inserire Nominativo" id="nominativoId">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">chiudi</button>
-                <button type="button" class="btn btn-primary">prenota</button>
+                <button type="button" class="btn btn-primary" id="prenotino">prenota</button>
               </div>
             </div>
           </div>
@@ -102,6 +165,13 @@ let tables=[];
     
     //da fare richiamo altri bottoni e sviluppo delle funzionalità
 
-  
+    let prenota = document.getElementById("prenotino");
+    prenota.onclick =()=>{
+        let tmptable = templateTable;
+        tmptable[parseInt(document.getElementById("sceltaGiorno").value)+1][parseInt(document.getElementById("sceltaOra").value)+1]=document.querySelector("#nominativoId").value;
+        console.log(parseInt(document.getElementById("sceltaGiorno").value)+1+"  "+parseInt(document.getElementById("sceltaOra").value)+1);
+        tables[currentTable].build(tmptable)
+        tables[currentTable].render();
+    } 
 })
 
