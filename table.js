@@ -5,7 +5,7 @@ export const createTable = (parentElement) => {
       data = dataInput;
     },
     render: () => {
-      let htmlTable = "<table> <th>Lunedì</th> <th>Martedì</th> <th>Mercoledì</th> <th>Giovedì</th> <th>Venerdì</th>";
+      let htmlTable = `<table> <th>Lunedì</th> <th>Martedì</th> <th>Mercoledì</th> <th>Giovedì</th> <th>Venerdì</th>`; //``
       htmlTable += data.map((row,) => 
         "<tr>" + row.map((col) => 
          "<td>" + col + "</td>"
