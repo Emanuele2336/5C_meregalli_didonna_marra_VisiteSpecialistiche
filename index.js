@@ -168,7 +168,7 @@ Object.defineProperty(HTMLElement.prototype, 'hide', {
     let prenota = document.getElementById("prenotino");
     prenota.onclick =()=>{
         let tmptable = templateTable;
-        tmptable[parseInt(document.getElementById("sceltaGiorno").value)+1][parseInt(document.getElementById("sceltaOra").value)+1]=document.querySelector("#nominativoId").value;
+        tmptable[parseInt(document.getElementById("sceltaOra").value)][parseInt(document.getElementById("sceltaGiorno").value)+1]=document.querySelector("#nominativoId").value;
         console.log(parseInt(document.getElementById("sceltaGiorno").value)+1+"  "+parseInt(document.getElementById("sceltaOra").value)+1);
         tables[currentTable].build(tmptable)
         tables[currentTable].render();
